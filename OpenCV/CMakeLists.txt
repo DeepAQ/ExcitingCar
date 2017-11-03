@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 2.8)
+
+PROJECT(ExcitingCar_OpenCV)
+
+FIND_PACKAGE(OpenCV REQUIRED)
+
+SET(SRC
+ yibasuo.cpp
+)
+
+SET(PROJECT_NAME
+ yibasuo
+)
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME}  ${OpenCV_LIBS})

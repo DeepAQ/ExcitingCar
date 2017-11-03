@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     controlRight(FORWARD, 100);
     int count_l, count_r;
     int total_l = 0, total_r = 0;
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 20; i++) {
         getCounter(&count_l, &count_r);
         total_l += count_l;
         total_r += count_r;
@@ -26,23 +26,23 @@ int main(int argc, char *argv[])
         double speed_l = count_l / 100.0;
         double speed_r = count_r / 100.0;
         int a_l, a_r;
-        if (speed_l > speed_r) {
+        if (speed_l < speed_r) {
             a_l = 100;
-            a_r = 100 * speed_r / speed_l - 5;
+            a_r = 100 * speed_l / speed_r + 1;
         } else {
             a_r = 100;
-            a_l = 100 * speed_l / speed_r - 5;
+            a_l = 100 * speed_r / speed_l + 1;
         }
         cout << "Speed: Left " << a_l << ", Right " << a_r << endl;
         controlLeft(FORWARD, a_l);
         controlRight(FORWARD, a_r);
-    delay(10);
+        delay(50);
     }
     cout << "Stop" << endl;
     init();
-        getCounter(&count_l, &count_r);
-        total_l += count_l;
-        total_r += count_r;
+    getCounter(&count_l, &count_r);
+    total_l += count_l;
+    total_r += count_r;
     cout << "Total Count: Left " << total_l << ", Right " << total_r << endl;
     return 0;
 }
