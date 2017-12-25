@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+
+PROJECT(ExcitingCar_OpenCV2)
+SET(PROJECT_NAME yibasuo2)
+
+FIND_PACKAGE(OpenCV REQUIRED)
+
+SET(SRC main.cpp)
+
+ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${OpenCV_LIBS} ${CMAKE_SOURCE_DIR}/libGPIO.a wiringPi)
+
